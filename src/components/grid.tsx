@@ -6,7 +6,7 @@ interface GridProps {
     rows: Cell[][]
 }
 
-export function Grid(props: GridProps) {
+export function GridView(props: GridProps) {
     const gridRows = props.rows.map((row) => {
         return <RowView cells={row}></RowView>
     })

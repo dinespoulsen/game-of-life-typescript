@@ -1,7 +1,7 @@
 import { Cell } from "./cell";
 
-export function iterateGame(state: Cell[][]) : Cell[][] {
-    return state.map((row) => {
+export function iterateGame(grid: Cell[][]) : Cell[][] {
+    return grid.map((row) => {
         row.forEach((cell) => {
             cell.iterate();
         })
