@@ -1,14 +1,14 @@
 import * as React from "react";
 import { RowView } from './row';
-import { Row } from '../domain/row';
+import { Cell } from "../domain/cell";
 
 interface GridProps {
-    rows: Row[]
+    rows: Cell[][]
 }
 
 export function Grid(props: GridProps) {
     const gridRows = props.rows.map((row) => {
-        return <RowView cells={row.cells}></RowView>
+        return <RowView cells={row}></RowView>
     })
     return (
         <div className="grid">

@@ -1,12 +1,17 @@
 interface ICell {
-    alive : boolean
+    alive : boolean,
+    x: number,
+    y: number
 }
 
 export class Cell implements ICell {
     private _alive : boolean;
-    constructor(alive: boolean) {
-        this._alive =
-         alive;
+    private _x : number;
+    private _y : number;
+    constructor(alive: boolean, x: number, y: number) {
+        this._alive = alive;
+        this._x = x;
+        this._y = y;
     }
 
     public get alive() {
@@ -15,5 +20,25 @@ export class Cell implements ICell {
 
     public set alive(value) {
         this._alive = value;
+    }
+
+    public get x() {
+        return this._x;
+    }
+
+    public set x(value) {
+        this._x = value;
+    }
+
+    public get y() {
+        return this._y;
+    }
+
+    public set y(value) {
+        this._y = value;
+    }
+
+    public iterate() {
+        this.alive = !this.alive;
     }
 }

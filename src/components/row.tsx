@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { CellView } from './cell';
 import { Cell } from '../domain/cell';
 
