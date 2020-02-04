@@ -2,22 +2,24 @@ import * as React from 'react';
 import {useState, useEffect}  from 'react';
 import { GridView } from './grid';
 import { iterateGame } from '../domain/iterateGame';
-import { Cell } from "../domain/cell";
+import { Grid } from '../domain/grid';
 
 interface GameProps {
-    initialState: Cell[][]
+    grid: Grid
 }
 
-export const Game = (props: GameProps) => {
-    const [gameState, setGameState] = useState(props.initialState);
+export const Game = ({ grid }: GameProps) => {
+    const [gameState, setGameState] = useState(grid.cells);
+    
     let interval : number;
     useEffect(() => {
         interval = setInterval(() => {
-            const newState = iterateGame(gameState);
+            const newState = iterateGame(grid);
+            grid.cells = newState;
             setGameState(newState);
-        }, 10000);
+        }, 100);
 
         return () => clearInterval(interval);
-    }, [])
+    })
     return <GridView rows={gameState} />
 };

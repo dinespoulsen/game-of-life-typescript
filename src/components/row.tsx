@@ -7,7 +7,7 @@ interface GridRowProps {
 }
 
 export function RowView(props: GridRowProps) {
-    const cells = props.cells.map((cell) => <CellView alive={cell.alive}></CellView>)
+    const cells = props.cells.map((cell) => <CellView status={cell.status}></CellView>)
     return (
         <div className="row">
             {cells}

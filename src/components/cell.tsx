@@ -1,11 +1,24 @@
 import * as React from "react";
+import { CellStatus } from "../domain/cellStatus";
 
 interface CellProps {
-    alive: boolean
+    status: CellStatus
 }
 
-export function CellView(props: CellProps) {
+function getClassName(status: CellStatus) {
+    switch (status) {
+        case CellStatus.Alive:
+            return 'alive';
+        case CellStatus.Dying:
+            return 'dying';
+        default:
+            return '';
+    }
+}
+
+export function CellView({ status }: CellProps) {
+
     return (
-        <div className={`cell ${props.alive ? 'cell--alive': ''}`}></div>
+        <div className={ `cell cell--${getClassName(status)}`}></div>
     );
 }
