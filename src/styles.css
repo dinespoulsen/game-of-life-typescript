@@ -1,18 +1,26 @@
+#game {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .grid {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 800px;
+  width: 800px;
+  align-self: center;
 }
 
 .row {
-    display: flex;
-    height: 25px;
+  display: flex;
+  flex-basis: 100%;
 }
 
 .cell {
-    height: 25px;
-    width: 25px;
-    margin: 2px;
+  flex-basis: 100%;
 }
 
 .cell--paused.cell__alive {
@@ -24,10 +32,10 @@
 }
 
 .cell__alive {
-    border-radius: 50%;
-    background-color: deepskyblue;
-    opacity: 0;
-    animation: aliveCell 1500ms infinite cubic-bezier(.36, .11, .89, .32);
+  border-radius: 50%;
+  background-color: deepskyblue;
+  opacity: 0;
+  animation: aliveCell 1500ms infinite cubic-bezier(.36, .11, .89, .32);
 }
 
 .cell__dying {
@@ -57,4 +65,33 @@
       transform: scale(2);
       opacity: 0;
     }
+}
+
+.play-button, .pause-button {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 74px;
+
+  border-color: transparent transparent transparent #202020;
+  transition: 30ms all ease;
+  cursor: pointer;
+
+  border-style: solid;
+  border-width: 36px 0 35px 60px;
+}
+
+.pause-button {
+  border-style: double;
+  border-width: 0px 0 0px 60px;
+}
+
+.play-button:hover, .pause-button:hover {
+  border-color: transparent transparent transparent #404040;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
 }

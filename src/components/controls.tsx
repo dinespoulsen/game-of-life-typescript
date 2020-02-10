@@ -4,7 +4,7 @@ import { ControlsContext } from './controlsContext';
 
 export function Controls() {
     const { isPlaying, toggleIsPlaying } = useContext(ControlsContext);
-    return <div onClick={() => toggleIsPlaying()}>
-        { isPlaying ? 'Stop' : 'Play' }
-    </div>
+    return <div className="controls">
+        <button className={`${isPlaying ? 'pause' : 'play'}-button`} onClick={() => toggleIsPlaying()}></button>
+        </div>
 }

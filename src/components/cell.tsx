@@ -10,9 +10,9 @@ interface CellProps {
 function getStatusClass(status: CellStatus) {
     switch (status) {
         case CellStatus.Alive:
-            return '__alive';
+            return 'cell__alive';
         case CellStatus.Dying:
-            return '__dying';
+            return 'cell__dying';
         default:
             return '';
     }
@@ -21,6 +21,6 @@ function getStatusClass(status: CellStatus) {
 export function CellView({ status }: CellProps) {
     const { isPlaying } = useContext(ControlsContext);
     return (
-        <div className={`cell cell${getStatusClass(status)} cell${isPlaying ? '' : '--paused'}`}></div>
+        <div className={`cell ${getStatusClass(status)} ${isPlaying ? '' : 'cell--paused'}`}></div>
     );
 }
